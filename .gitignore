@@ -1,0 +1,13 @@
+/*
+!.gitignore
+!README.md
+!package.json
+!webpack.mix.js
+!database.sql
+
+!/wp-content
+/wp-content/*
+!/wp-content/themes
+/wp-content/themes/*
+!/wp-content/themes/portfolio
+/wp-content/themes/portfolio/public
