@@ -9,7 +9,7 @@
 <header class="header">
 
 	<nav class="nav">
-		<?php foreach (get_menu('main') as $link): ?>
+		<?php foreach (portfolio_get_menu('main') as $link): ?>
 			<a href="<?= $link->href; ?>" class="nav__link">
 				<span class="nav__label">
 					<?= $link->label; ?>

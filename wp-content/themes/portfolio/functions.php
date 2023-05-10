@@ -1,6 +1,10 @@
 <?php
-if (session_status() === PHP_SESSION_NONE) session_start();
 
+// Démarrer le système de sessions pour pouvoir afficher des messages de feedback venant des formulaires.
+if(session_status() === PHP_SESSION_NONE) session_start();
+
+
+// Charger les fichiers des fonctionnalités extraites dans des classes.
 require_once(__DIR__ . '/controllers/ContactForm.php');
 
 // Disable Wordpress' default Gutenberg Editor:
@@ -9,7 +13,8 @@ add_filter('use_block_editor_for_post', '__return_false', 10);
 // Register existing navigation menus
 register_nav_menu('main', 'Navigation principale du site web (en-tête)');
 register_nav_menu('footer', 'Navigation de pied de page');
-function get_menu(string $location, ?array $attributes = []): array
+
+function portfolio_get_menu(string $location, ?array $attributes = []): array
 {
 	// 1. Récupérer les liens en base de données pour la location $location
 	$locations = get_nav_menu_locations();
@@ -35,4 +40,94 @@ function get_menu(string $location, ?array $attributes = []): array
 
 	// 3. Retourner l'ensemble des liens formatés en un seul tableau non-associatif
 	return $links;
+}
+
+// Activer les images "thumbnail" sur nos posts
+add_theme_support('post-thumbnails');
+add_image_size('animal_thumbnail', 400, 400, true);
+
+// Enregistrer un custom post type :
+function portfolio_register_custom_post_types()
+{
+	register_post_type('projet', [
+		'label' => 'Projets',
+		'description' => 'Les projets de Blanchar Senga-Vita',
+		'public' => true,
+		'menu_position' => 20,
+		'menu_icon' => 'dashicons-portfolio', // https://developer.wordpress.org/resource/dashicons/#pets,
+		'supports' => ['title','thumbnail'],
+	]);
+
+	register_post_type('message', [
+		'label' => 'Message de contact',
+		'description' => 'Les messages envoyés via le formulaire de contact.',
+		'public' => true,
+		'menu_position' => 20,
+		'menu_icon' => 'dashicons-email', // https://developer.wordpress.org/resource/dashicons/#pets,
+		'supports' => ['title','editor'],
+	]);
+}
+
+add_action('init', 'portfolio_register_custom_post_types');
+
+// Gérer le formulaire de contact "custom"
+// Inspiré de : https://wordpress.stackexchange.com/questions/319043/how-to-handle-a-custom-form-in-wordpress-to-submit-to-another-page
+
+function portfolio_execute_contact_form()
+{
+	$config = [
+		'nonce_field' => 'contact_nonce',
+		'nonce_identifier' => 'portfolio_contact_form',
+	];
+
+	(new \Portfolio\ContactForm($config, $_POST))
+		->sanitize([
+			'firstname' => 'text_field',
+			'lastname' => 'text_field',
+			'email' => 'email',
+			'message' => 'textarea_field',
+		])
+		->validate([
+			'firstname' => ['required'],
+			'lastname' => ['required'],
+			'email' => ['required','email'],
+			'message' => [],
+		])
+		->save(
+			title: fn($data) => $data['firstname'] . ' ' . $data['lastname'] . ' <' . $data['email'] . '>',
+			content: fn($data) => $data['message'],
+		)
+		->send(
+			title: fn($data) => 'Nouveau message de ' . $data['firstname'] . ' ' . $data['lastname'],
+			content: fn($data) => 'Prénom: ' . $data['firstname'] . PHP_EOL . 'Nom: ' . $data['lastname'] . PHP_EOL . 'Email: ' . $data['email'] . PHP_EOL . 'Message:' . PHP_EOL . $data['message'],
+		)
+		->feedback();
+}
+
+add_action('admin_post_nopriv_portfolio_contact_form', 'portfolio_execute_contact_form');
+add_action('admin_post_portfolio_contact_form', 'portfolio_execute_contact_form');
+
+// Travailler avec la session de PHP
+function portfolio_session_flash(string $key, mixed $value)
+{
+	if(! isset($_SESSION['portfolio_flash'])) {
+		$_SESSION['portfolio_flash'] = [];
+	}
+
+	$_SESSION['portfolio_flash'][$key] = $value;
+}
+
+function portfolio_session_get(string $key)
+{
+	if(isset($_SESSION['portfolio_flash']) && array_key_exists($key, $_SESSION['portfolio_flash'])) {
+		// 1. Récupérer la donnée qui a été flash.
+		$value = $_SESSION['portfolio_flash'][$key];
+		// 2. Supprimer la donnée de la session.
+		unset($_SESSION['portfolio_flash'][$key]);
+		// 3. Retourner la donnée récupérée.
+		return $value;
+	}
+
+	// La donnée n'existait pas dans la session flash, on retourne null.
+	return null;
 }

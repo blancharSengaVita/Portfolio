@@ -1,6 +1,6 @@
 <?php
 
-namespace Hepl;
+namespace Portfolio;
 
 class ContactForm
 {
@@ -34,17 +34,19 @@ class ContactForm
 	 * is correctly formatted, otherwise, redirect to the previous
 	 * URL in order to display the validation errors.
 	 */
-	public function validate(array $rules): void
+	public function validate(array $rules): static
 	{
 		if(! $this->verifyNonce()) {
 			die('Invalid request.');
 		}
 
 		if($errors = $this->applyValidationRules($rules)) {
-			// La validation ne passe pas, il faut afficher une erreur à l'utilisateur.
-			wp_safe_redirect($this->referrer . '?' . http_build_query($errors));
+			portfolio_session_flash($this->config['nonce_identifier'] . '_errors', $errors);
+			wp_safe_redirect($this->referrer);
 			exit;
 		}
+
+		return $this;
 	}
 
 	protected function verifyNonce(): bool
@@ -106,18 +108,20 @@ class ContactForm
 	/**
 	 * Cleanup the data values.
 	 */
-	public function sanitize(array $methods): void
+	public function sanitize(array $methods): static
 	{
 		foreach ($methods as $field => $method) {
 			$method = 'sanitize_' . $method;
 			$this->data[$field] = $method($this->data[$field] ?? '');
 		}
+
+		return $this;
 	}
 
 	/**
 	 * Insert the form data into Wordpress' database.
 	 */
-	public function save(callable $title, callable $content): void
+	public function save(callable $title, callable $content): static
 	{
 		wp_insert_post([
 			'post_type' => 'message',
@@ -125,14 +129,18 @@ class ContactForm
 			'post_title' => $title($this->data),
 			'post_content' => $content($this->data),
 		]);
+
+		return $this;
 	}
 
 	/**
 	 * Send the form data in an email.
 	 */
-	public function send(callable $title, callable $content): void
+	public function send(callable $title, callable $content): static
 	{
 		wp_mail(get_bloginfo('admin_email'), $title($this->data), $content($this->data));
+
+		return $this;
 	}
 
 	/**
@@ -141,6 +149,7 @@ class ContactForm
 	 */
 	public function feedback(): void
 	{
+		portfolio_session_flash($this->config['nonce_identifier'] . '_feedback', true);
 		wp_safe_redirect($this->referrer);
 		exit;
 	}
