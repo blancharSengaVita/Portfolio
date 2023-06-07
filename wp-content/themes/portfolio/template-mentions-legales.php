@@ -1,4 +1,4 @@
-<?php /* Template Name: Landing page template */ ?>
+<?php /* Template Name: Privacy policy page template */ ?>
 <?php get_header(); ?>
 <main>
 	<div class="hero">

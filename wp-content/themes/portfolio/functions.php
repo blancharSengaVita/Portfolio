@@ -55,7 +55,7 @@ function portfolio_register_custom_post_types()
 		'public' => true,
 		'menu_position' => 20,
 		'menu_icon' => 'dashicons-portfolio', // https://developer.wordpress.org/resource/dashicons/#pets,
-		'supports' => ['title','thumbnail'],
+		'supports' => ['title','thumbnail', 'editor'],
 	]);
 
 	register_post_type('message', [

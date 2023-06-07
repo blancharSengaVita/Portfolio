@@ -6,7 +6,8 @@
 			</li>
 		<?php endforeach; ?>
 	</ul>
-	<p class="footer__copyright">© <?= get_bloginfo('name'); ?> <time datetime="2023">2023</time></p>
+	<p class="footer__copyright">© <?=get_bloginfo('name');?> - <time datetime="2023">2023</time> </p>
+	<p> Belgique - 4000 Liège </p>
 </footer>
 </body>
 </html>
