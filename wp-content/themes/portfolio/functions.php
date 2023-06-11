@@ -44,7 +44,8 @@ function portfolio_get_menu(string $location, ?array $attributes = []): array
 
 // Activer les images "thumbnail" sur nos posts
 add_theme_support('post-thumbnails');
-add_image_size('animal_thumbnail', 400, 400, true);
+add_image_size('project_thumbnail', 9999, 350, false);
+add_image_size('project_medium', 500, 9999, false);
 
 // Enregistrer un custom post type :
 function portfolio_register_custom_post_types()
@@ -130,4 +131,11 @@ function portfolio_session_get(string $key)
 
 	// La donnée n'existait pas dans la session flash, on retourne null.
 	return null;
+}
+
+function dd($var){
+	echo '<pre>';
+	var_dump($var);
+	echo '<pre>';
+	die;
 }
