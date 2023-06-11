@@ -92,6 +92,15 @@ class ContactForm
 
 	protected function getRequiredErrorMessage(string $field): string
 	{
+		switch ($field){
+			case 'lastname' :
+				$field = 'nom';
+				break;
+			case 'firstname' :
+				$field = 'prénom';
+				break;
+		}
+
 		return 'Le champ ' . $field . ' est requis.';
 	}
 
