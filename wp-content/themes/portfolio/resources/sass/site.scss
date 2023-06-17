@@ -1,4 +1,48 @@
-@import 'reset';
-@import 'utils';
-@import 'projects';
+//Constants
+
+
+//Helpers
+@import 'helpers/reset';
+@import 'helpers/utils';
+@import 'helpers/root';
+@import 'helpers/exception';
+@import 'helpers/var';
+
+//Global
+@import 'link';
+
+//PARTIALS
+//header
+@import 'headers/header';
+@import 'headers/logo';
+@import 'headers/menu';
+@import 'headers/nav';
+
+//footer
+@import 'footer';
+
+//main page
+@import 'mainPage/hero';
+@import 'mainPage/projects';
+@import 'mainPage/quality';
+@import 'mainPage/description';
+@import 'mainPage/body';
+
+//project page
+@import "project/page";
+
+//contact page
+@import "contact/page";
+
+//mention-legal page
+@import "mention-legal/page";
+
+
+
+
+
+
+
+
+
 
