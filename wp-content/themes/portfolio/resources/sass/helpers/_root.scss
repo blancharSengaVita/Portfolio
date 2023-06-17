@@ -1,0 +1,27 @@
+@import "var";
+:root {
+  background-color: $background-color;
+  font-family: Fresca, serif;
+  font-size: 16px;
+}
+
+body {
+  //pour un sticky footer
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  //pour un sticky footer
+  flex-grow: 1;
+}
+
+
+*:focus { outline: 4px solid royalblue; }
+
+input:focus-visible {
+  outline: 4px solid blue;
+}
+
+

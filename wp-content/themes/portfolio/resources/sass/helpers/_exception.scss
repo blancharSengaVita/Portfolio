@@ -1,0 +1,15 @@
+@import "../helpers/var";
+
+
+.call-to-action {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+  font-size: 2rem;
+  margin: 5rem 0;
+
+  & .bonjour {
+    font-family: $script;
+    font-size: 1.7*2rem;
+  }
+}
