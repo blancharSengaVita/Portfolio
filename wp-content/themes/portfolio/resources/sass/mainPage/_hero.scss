@@ -1,0 +1,61 @@
+@import "../helpers/var";
+
+@media screen and (max-width: 1023px) {
+  .hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &__container:nth-child(1) {
+      order: 1;
+    }
+
+    &__title {
+      font-family: $script;
+      font-size: 3rem;
+    }
+
+    &__tagline {
+      font-size: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    &__img {
+      width: 200px;
+      height: 200px;
+    }
+  }
+}
+
+
+@media screen and (min-width: 1024px) {
+  .hero {
+    display: flex;
+    align-items: center;
+
+    &__img {
+      width: 450px;
+      height: 450px;
+    }
+
+    &__title {
+      font-family: $script;
+      font-size: 7rem;
+    }
+
+    &__tagline {
+      font-size: 3rem;
+      margin-top: 1rem;
+    }
+
+    .hero__container:first-child {
+      margin-right: 2rem;
+    }
+  }
+}

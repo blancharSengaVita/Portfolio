@@ -1,0 +1,59 @@
+@import "../helpers/var";
+
+.projects {
+  width: 100vw;
+  background-color: $base-color;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__title {
+    margin-top: 2rem;
+    font-family: $script;
+    font-size: 3rem;
+  }
+
+  &__container {
+    width: calc(100vw - (2rem*2));
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+  }
+}
+
+.project {
+  &__card {
+    //margin-top: 3em;
+  }
+
+  &__card:nth-child(2n){
+    align-self: end;
+    & .project__link {
+      display: flex;
+      flex-direction: column;
+      align-items: self-end;
+    }
+
+  }
+  &__card:nth-child(2n +1){
+    align-self: start;
+  }
+
+  &__title {
+    font-size: 1.5rem;
+    font-weight: 300;
+    //font-family: "Just Another Hand", serif;
+  }
+
+  &__link:hover {
+    color : white;
+  }
+
+  &__thumbnail{
+    width: 200px;
+    height: auto;
+  }
+
+}

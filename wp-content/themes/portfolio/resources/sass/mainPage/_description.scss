@@ -1,0 +1,26 @@
+  .description {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    max-width: 500px;
+
+    &__container {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__img {
+      width: 200px;
+      height: 200px;
+    }
+
+    &__paragraph{
+      margin-top: 1rem;
+    }
+  }
+
+  @media screen and (min-width: 1023px) {
+
+  }
+
