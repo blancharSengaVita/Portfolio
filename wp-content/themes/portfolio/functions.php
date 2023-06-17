@@ -44,8 +44,11 @@ function portfolio_get_menu(string $location, ?array $attributes = []): array
 
 // Activer les images "thumbnail" sur nos posts
 add_theme_support('post-thumbnails');
-add_image_size('project_thumbnail', 9999, 350, false);
-add_image_size('project_medium', 500, 9999, false);
+add_image_size('h350', 9999, 350, false);
+add_image_size('w50', 500, 9999, false);
+add_image_size('w80', 80, 9999, false);
+add_image_size('w60', 60, 9999, false);
+add_image_size('w200xh200', 200, 200, false);
 
 // Enregistrer un custom post type :
 function portfolio_register_custom_post_types()
@@ -139,3 +142,9 @@ function dd($var){
 	echo '<pre>';
 	die;
 }
+
+function image(string $image_url, string $classname, string $alt){
+	$image_id = attachment_url_to_postid($image_url);
+	$image = wp_get_attachment_image($image_id, false, false, ['class' => $classname, 'alt' => $alt ]);
+	return $image;
+};
