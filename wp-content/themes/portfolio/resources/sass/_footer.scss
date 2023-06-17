@@ -1,0 +1,14 @@
+@import "helpers/_var.scss";
+
+footer {
+  width: 100vw;
+  padding: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: $base-color;
+justify-content: flex-end;
+  & a:hover {
+    color: white;
+  }
+}
