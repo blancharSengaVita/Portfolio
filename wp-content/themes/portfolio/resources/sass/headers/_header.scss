@@ -1,0 +1,24 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  width: calc(100vw - (1rem * 2));
+  padding: 0 1rem;
+  align-items: center;
+  align-content: baseline;
+  //border-bottom: 2px solid orange;
+  &__container {
+
+  }
+}
+
+
+@media screen and (min-width: 768px) {
+
+}
+
+@media screen and (min-width: 1024px) {
+
+}
+
+
+//
