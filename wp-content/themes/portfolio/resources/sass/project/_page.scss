@@ -1,0 +1,139 @@
+@import "../helpers/var";
+
+.img__checkbox:checked + .img__label + .img__popup  {
+  visibility: visible;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  display : flex;
+  flex-direction : column;
+  align-items: center;
+  justify-content : center;
+  inset: 0;
+  background: $background-color-opacity;
+}
+
+.img__checkbox:focus-visible + .img__label, {
+  outline: 4px solid royalblue;
+}
+
+.img__label:hover {
+  outline: 4px solid orange;
+}
+
+.img__checkbox:focus-visible + .img__label + .img__popup > .img__checkbox .popup__close{
+  outline: 4px solid royalblue;
+  z-index: 2;
+}
+
+.single-project__img--large {
+  z-index: 1;
+  width: 90vw;
+  height: auto;
+}
+
+.img__popup {
+  display : none;
+  width : 0;
+  height : 0;
+  position: relative;
+
+  & .img__checkbox {
+    position: relative;
+    display : flex;
+    flex-direction: column;
+    align-items: end;
+  }
+}
+
+.single-project {
+  a {
+    text-decoration: underline;
+  }
+}
+
+@media screen and (max-width: 1023px){
+  .single-project {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    &__title {
+      font-size: 3rem;
+      font-family: $script;
+    }
+
+    &__container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &__container + .single-project__container {
+      margin-top: 2rem;
+    }
+
+    &__description {
+      margin-top: 1.5rem;
+      font-size: 1rem;
+      line-height: 1.5rem;
+    }
+
+    &__link {
+      font-size: 1.7rem;
+      margin-top: 2rem;
+      text-decoration: underline;
+    }
+
+    .img__label {
+      margin-top: 1rem;
+    }
+
+    &__img {
+      width: 200px;
+      height: auto;
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .single-project {
+    padding: 2rem;
+    display: flex;
+
+    &__title{
+      font-size: 7rem;
+      font-family: $script;
+    }
+
+    &__img{
+      width: 500px;
+      height: auto;
+    }
+
+    .img__label {
+      margin-top: 4rem;
+    }
+
+    & > :first-child {
+      padding-right: 5rem;
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__description {
+      margin-top: 2rem;
+      font-size: 1.5rem;
+      line-height: 2rem;
+    }
+
+    &__link {
+      font-size: 1.7rem;
+      margin-top: 2rem;
+      text-decoration: underline;
+    }
+  }
+}
+
+
