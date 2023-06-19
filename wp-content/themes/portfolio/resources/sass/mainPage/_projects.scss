@@ -13,14 +13,6 @@
     font-family: $script;
     font-size: 3rem;
   }
-
-  &__container {
-    width: calc(100vw - (2rem*2));
-    max-width: 500px;
-    display: flex;
-    flex-direction: column;
-    padding: 2rem;
-  }
 }
 
 .project {
@@ -44,7 +36,6 @@
   &__title {
     font-size: 1.5rem;
     font-weight: 300;
-    //font-family: "Just Another Hand", serif;
   }
 
   &__link:hover {
@@ -55,5 +46,37 @@
     width: 200px;
     height: auto;
   }
+}
 
+@media screen and (max-width: 1023px) {
+  .project {
+    &__card{
+
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .projects {
+    &__title {
+      font-size: 6rem;
+    }
+
+    &__container {
+      width: calc(100vw - (2rem*2));
+      display: flex;
+      justify-content: space-between;
+      padding: 2rem;
+    }
+  }
+
+  .project {
+    &__thumbnail{
+      width: 350px;
+      height: auto;
+    }
+    &__container {
+      display : flex;
+    }
+  }
 }
