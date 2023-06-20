@@ -1,5 +1,24 @@
+@font-face {
+  font-family: manuscrit;
+  src: url('../../../assets/fonts/JustAnotherHand-Regular.ttf') format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: script;
+  src: url('../../../assets/fonts/Fresca-Regular.ttf') format("truetype") ;
+  font-weight: normal;
+  font-style: normal;
+}
+
 $base-color : #FFA500;
-$sans-serif : Mukta, sans-serif;
-$script : 'just Another Hand', serif;
+$sans-serif : script, sans-serif;
+$script : manuscrit, serif;
 $background-color : #FFFFF0;
 $background-color-opacity : #FFFFF0D9;
+
+
+//body {
+//  background-color: red;
+//}

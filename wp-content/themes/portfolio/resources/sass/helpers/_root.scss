@@ -1,11 +1,14 @@
 @import "var";
 :root {
   background-color: $background-color;
-  font-family: Fresca, serif;
+  font-family: Fresca, sans-serif;
   font-size: 16px;
 }
 
 body {
+  background-color: $background-color;
+  font-family: Fresca, sans-serif;
+  font-size: 16px;
   //pour un sticky footer
   min-height: 100vh;
   display: flex;
@@ -16,7 +19,6 @@ main {
   //pour un sticky footer
   flex-grow: 1;
 }
-
 
 *:focus { outline: 4px solid royalblue; }
 

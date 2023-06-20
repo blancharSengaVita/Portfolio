@@ -13,8 +13,6 @@
     font-family: $script;
     font-size: 3rem;
   }
-
-
 }
 
 .project {
@@ -64,7 +62,9 @@
 
 @media screen and (min-width: 1024px) {
   .projects {
+    margin-top: 5rem;
     &__title {
+      margin-top: 5rem;
       font-size: 6rem;
     }
 
@@ -72,11 +72,12 @@
       width: calc(100vw - (2rem*2));
       display: flex;
       justify-content: space-around;
-      padding: 2rem;
+      padding: 5rem 2rem 10rem;
     }
   }
 
   .project {
+    margin-top: 2rem;
     &__thumbnail{
       width: 300px;
       height: auto;

@@ -1,6 +1,5 @@
 @import "../helpers/var";
 
-
 .call-to-action {
   display: flex;
   justify-content: center;
@@ -11,5 +10,27 @@
   & .bonjour {
     font-family: $script;
     font-size: 1.7*2rem;
+  }
+}
+
+@media screen and (max-width:1023px){
+  .call-to-action {
+    font-size: 2rem;
+    margin: 5rem 0 5rem;
+
+    & .bonjour {
+      font-size: 1.7*2rem;
+    }
+  }
+}
+
+@media screen and (min-width:1024px){
+  .call-to-action {
+    font-size: 5rem;
+    margin: 17rem 0 13rem;
+
+    & .bonjour {
+      font-size: 1.7*5rem;
+    }
   }
 }

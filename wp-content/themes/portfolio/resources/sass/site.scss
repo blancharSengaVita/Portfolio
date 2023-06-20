@@ -1,12 +1,11 @@
-//Constants
 
 
 //Helpers
 @import 'helpers/reset';
-@import 'helpers/utils';
-@import 'helpers/root';
-@import 'helpers/exception';
 @import 'helpers/var';
+@import 'helpers/root';
+@import 'helpers/utils';
+@import 'helpers/exception';
 
 //Global
 @import 'link';
@@ -36,13 +35,5 @@
 
 //mention-legal page
 @import "mention-legal/page";
-
-
-
-
-
-
-
-
 
 

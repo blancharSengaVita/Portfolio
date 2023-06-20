@@ -35,6 +35,14 @@
       font-size: 4rem;
     }
 
+    &__card {
+      padding-top: 3rem;
+    }
+
+    &__card:first-of-type {
+      padding-top: 5rem;
+    }
+
     & .card__title {
       margin-right: 1.5rem;
       font-size: 8rem;

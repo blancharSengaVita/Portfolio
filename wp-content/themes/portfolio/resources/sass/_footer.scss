@@ -1,14 +1,30 @@
 @import "helpers/_var.scss";
 
-footer {
-  width: 100vw;
-  padding: 2rem 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: $base-color;
-justify-content: flex-end;
-  & a:hover {
-    color: white;
+@media screen and (max-width: 1023px) {
+  footer {
+    width: calc(100vw - (2rem*2));
+    padding: 2rem;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+    background-color: $base-color;
+    & a:hover {
+      color: white;
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  footer {
+    width: calc(100vw - (2rem*2));
+    padding: 5rem 2rem 2rem;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    background-color: $background-color;
+    & a:hover {
+      color: $base-color;
+    }
   }
 }
