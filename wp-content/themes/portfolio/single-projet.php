@@ -2,16 +2,25 @@
 <?php if (have_posts()): while (have_posts()):
 	the_post(); ?>
 	<main class="single-project">
-		<div class="single-project__container">
+		<section class="single-project__container">
 			<h1 class="single-project__title"><?= get_the_title(); ?></h1>
-			<p class="single-project__description"> <?= get_field('project_description') ?> </p>
-			<a class="single-project__link" href="<?= get_field('single-project_link') ?>"> Visiter le projet </a>
-		</div>
+			<section class="single-project__description">
+				<h2 class="sr-only">Description du projet </h2>
+				<p>  <?= get_field('project_description') ?> </p>
+			</section>
+			<section class="single-project__link">
+				<h2 class="sr-only">Lien du projet</h2>
+				<a  href="<?= get_field('project_link') ?>"> Visiter le projet  </a>
+			</section>
+		</section>
 
-		<div class="single-project__container">
 
+
+		<section class="single-project__container">
+			<h2 class="sr-only">Galerie image du projet </h2>
 
 			<?php if (get_field('galeria') !== null): ?>
+
 				<?php foreach (get_field('galeria') as $image): ?>
 
 					<input type="checkbox" id="<?= $image['filename'] ?>" class="img__checkbox sr-only">
@@ -34,9 +43,9 @@
 					</div>
 				<?php endforeach; ?>
 			<?php else: ?>
-
+			<p> Ce projet contient aucune image </p>
 			<?php endif; ?>
-		</div>
+		</section>
 
 	</main>
 <?php endwhile; endif; ?>

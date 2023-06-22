@@ -5,31 +5,11 @@
   }
 }
 
-
-//@media screen and (min-width: 768px) {
-//  .logo {
-//    &__img{
-//      width: 60px;
-//      height: 60px;
-//    }
-//
-//    &__link{
-//
-//    }
-//
-//  }
-//
-//}
-
 @media screen and (min-width: 1024px) {
   .logo {
     &__img{
       width: 80px;
       height: 80px;
-    }
-
-    &__link{
-
     }
   }
 

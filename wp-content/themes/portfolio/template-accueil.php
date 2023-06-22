@@ -4,18 +4,13 @@
 	the_post(); ?>
 
 	<main class="main-page">
-
-		<div>
-
-		</div>
-
 		<div class="hero">
 			<div class="hero__container">
-				<h1 class="hero__title"><?= get_bloginfo('name'); ?></h1>
+				<p class="hero__title"><?= get_bloginfo('name'); ?></p>
 				<p class="hero__tagline"><?= get_bloginfo('description'); ?></p>
 			</div>
 			<div class="hero__container">
-				<?= image('https://portfolio.localhost/wp-content/uploads/2023/06/Logo.png', 'hero__img', 'Logo de Blanchar Senga-Vita'); ?>
+				<?= image(get_home_url() .'/wp-content/uploads/2023/06/Logo.png', 'hero__img', 'Logo de Blanchar Senga-Vita'); ?>
 			</div>
 		</div>
 
@@ -24,24 +19,24 @@
 
 			<section class="quality__card">
 				<h3 class="card__title">  <?= get_field('qualities')['0']['name'] ?> </h3>
-				<?= image('https://portfolio.localhost/wp-content/uploads/2023/06/Eclaires.png', 'card__img', 'dessin de 3 éclaires'); ?>
+				<?= image(get_home_url() . '/wp-content/uploads/2023/06/Eclaires.png', 'card__img', 'dessin de 3 éclaires'); ?>
 			</section>
 
 			<section class="quality__card">
 				<h3 class="card__title">  <?= get_field('qualities')['1']['name'] ?> </h3>
-				<?= image('https://portfolio.localhost/wp-content/uploads/2023/06/Soleil.png', 'card__img', 'dessin d\'un soleil '); ?>
+				<?= image(get_home_url() . '/wp-content/uploads/2023/06/Soleil.png', 'card__img', 'dessin d\'un soleil '); ?>
 			</section>
 
 			<section class="quality__card">
 				<h3 class="card__title">  <?= get_field('qualities')['2']['name'] ?> </h3>
-				<?= image('https://portfolio.localhost/wp-content/uploads/2023/06/ampoule.png', 'card__img', 'dessin d\'une ampoule'); ?>
+				<?= image( get_home_url() . '/wp-content/uploads/2023/06/ampoule.png', 'card__img', 'dessin d\'une ampoule'); ?>
 			</section>
 
 			<section class="description">
 				<h2 class="sr-only"> Mais encore </h2>
 
 				<figure class="description__fig">
-					<?= image('https://portfolio.localhost/wp-content/uploads/2023/06/2-bg-remove.png', 'description__img', 'photo de moi souriant'); ?>
+					<?= image(get_home_url() . '/wp-content/uploads/2023/06/2-bg-remove.png', 'description__img', 'photo de moi souriant'); ?>
 					<!--					<figcaption class="description__figcaption">-->
 					<?php //= get_field('legends_picture')[0]['text']
 					?><!--</figcaption>-->
@@ -74,11 +69,12 @@
 					$projects->the_post();
 					?>
 					<article class="project__card">
+						<h3 class="sr-only"><?= get_the_title(); ?></h3>
 						<a href="<?= get_the_permalink(); ?>" class="project__link">
 							<figure class="project__fig">
 								<?= get_the_post_thumbnail(null, 'project_thumbnail', ['class' => 'project__thumbnail']); ?>
 							</figure>
-							<h3 class="project__title"><?= get_the_title(); ?></h3>
+							<p class="project__title"><?= get_the_title(); ?></p>
 						</a>
 					</article>
 				<?php endwhile; else: ?>
@@ -88,7 +84,8 @@
 			</div>
 		</section>
 		<div class="call-to-action">
-			<a href="https://portfolio.localhost/contact/"> <?= get_field('call_to_action') ?> </a>
+			<h2 class="sr-only"> Contatez-moi !</h2>
+			<a href="<?= get_home_url() . "/contact/" ?>"> <?= get_field('call_to_action') ?> </a>
 		</div>
 	</main>
 <?php endwhile;

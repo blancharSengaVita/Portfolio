@@ -1,17 +1,25 @@
 @import "../helpers/var";
 
-.img__checkbox:checked + .img__label + .img__popup  {
+.img__checkbox:checked + .img__label + .img__popup {
   visibility: visible;
   width: 100%;
   height: 100%;
   position: fixed;
-  display : flex;
-  flex-direction : column;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content : center;
+  justify-content: center;
   inset: 0;
   background: $background-color-opacity;
 }
+
+//.img__label {
+//  width: 100%;
+//}
+
+//.single-project__img {
+//  width: 100%;
+//}
 
 .img__checkbox:focus-visible + .img__label, {
   outline: 4px solid royalblue;
@@ -21,28 +29,36 @@
   outline: 4px solid orange;
 }
 
-.img__checkbox:focus-visible + .img__label + .img__popup > .img__checkbox .popup__close{
+.img__checkbox:focus-visible + .img__label + .img__popup > .img__checkbox .popup__close {
   outline: 4px solid royalblue;
   z-index: 2;
 }
 
 .single-project__img--large {
   z-index: 1;
-  width: 90vw;
-  height: auto;
+  width: auto;
+  height: 90%;
+  max-height: 90vh;
 }
 
 .img__popup {
-  display : none;
-  width : 0;
-  height : 0;
+  display: none;
+  width: 0;
+  height: 0;
   position: relative;
 
   & .img__checkbox {
     position: relative;
-    display : flex;
+    display: flex;
     flex-direction: column;
-    align-items: end;
+    .popup__close {
+      align-self: end;
+      padding: 0.5rem;
+    }
+    .single-project__img--large {
+      align-self: center;
+    }
+    padding: 2rem;
   }
 }
 
@@ -52,7 +68,7 @@
   }
 }
 
-@media screen and (max-width: 1023px){
+@media screen and (max-width: 1023px) {
   .single-project {
     padding: 2rem;
     display: flex;
@@ -91,7 +107,7 @@
     }
 
     &__img {
-      width: 200px;
+      width: 100%;
       height: auto;
     }
   }
@@ -102,14 +118,15 @@
     padding: 2rem;
     display: flex;
 
-    &__title{
+    &__title {
       font-size: 7rem;
       font-family: $script;
     }
 
-    &__img{
-      width: 500px;
+    &__img {
+      width: 100%;
       height: auto;
+      max-width: 800px;
     }
 
     .img__label {
@@ -120,6 +137,7 @@
       padding-right: 5rem;
       display: flex;
       flex-direction: column;
+      max-width: 500px;
     }
 
     &__description {

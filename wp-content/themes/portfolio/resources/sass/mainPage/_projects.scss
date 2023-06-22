@@ -17,7 +17,7 @@
 
 .project {
   &__card {
-    //margin-top: 3em;
+    margin-top: 2rem;
   }
 
   &__card:nth-child(2n){
@@ -40,6 +40,10 @@
 
   &__link:hover {
     color : white;
+  }
+
+  &__link:focus {
+    outline: 4px solid royalblue;
   }
 
   &__thumbnail{

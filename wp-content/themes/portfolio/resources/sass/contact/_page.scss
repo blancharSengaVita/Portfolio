@@ -26,6 +26,11 @@
     color: red;
     font-size: 1.25rem;
   }
+
+  input, textarea, select {
+    font-family: $sans-serif;
+  }
+
 }
 
 @media screen and (max-width: 1023px) {
@@ -115,6 +120,9 @@
         font-size: 1.25rem;
         font-family: Fresca, sans-serif;
       }
+      &__submit:focus-visible {
+        outline: 4px solid blue;
+      }
     }
   }
 }
@@ -122,8 +130,15 @@
 @media screen and (min-width : 1024px) {
   .page__form {
 
+    .title {
+      font-size: 5rem;
+    }
+
+
+
     .contact {
-      margin-top: 1rem;
+      margin-top: 4rem;
+      font-size: 1.25rem;
 
       &__info {
         display: flex;
@@ -187,6 +202,9 @@
         border: 2px black solid;
         font-size: 1.25rem;
         font-family: Fresca, sans-serif;
+      }
+      &__submit:focus-visible {
+        outline: 4px solid blue;
       }
     }
   }

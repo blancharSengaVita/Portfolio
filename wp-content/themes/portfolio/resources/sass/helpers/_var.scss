@@ -1,24 +1,22 @@
 @font-face {
-  font-family: manuscrit;
-  src: url('../../../assets/fonts/JustAnotherHand-Regular.ttf') format("truetype");
+  font-family:"Just Another Hand";
+  src: url('../../../../../../fonts/JustAnotherHand-Regular.ttf') format("truetype"),
+  url('../../../../../../fonts/JustAnotherHand-Regular.woff2') format("woff2");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: script;
-  src: url('../../../assets/fonts/Fresca-Regular.ttf') format("truetype") ;
+  font-family: "Fresca";
+  src: url('../../../../../../fonts/Fresca-Regular.ttf') format("truetype"),
+  url('../../../../../../fonts/Fresca-Regular.woff2') format("woff2");
   font-weight: normal;
   font-style: normal;
 }
 
 $base-color : #FFA500;
-$sans-serif : script, sans-serif;
-$script : manuscrit, serif;
+$sans-serif : "Fresca", sans-serif;
+$script : "Just Another Hand", serif;
 $background-color : #FFFFF0;
 $background-color-opacity : #FFFFF0D9;
 
-
-//body {
-//  background-color: red;
-//}

@@ -7,13 +7,14 @@
 		$errors = portfolio_session_get('portfolio_contact_form_errors') ?? [];
 		?>
 
-		<h1 class="title" > <?= get_field('title') ?> </h1>
+		<h1 class="sr-only"> Formulaire de contact </h1>
+		<p class="title"> <?= get_field('title') ?> </p>
 
-<!--		--><?php //if ($feedback): ?>
+		<?php if ($feedback): ?>
 			<div class="success"">
 				<p>Merci&nbsp;! Votre message a bien été envoyé.</p>
 			</div>
-<!--		--><?php //endif; ?>
+		<?php endif; ?>
 
 			<?php if ($errors): ?>
 				<div class="error">
