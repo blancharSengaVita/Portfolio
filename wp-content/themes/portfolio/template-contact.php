@@ -7,7 +7,7 @@
 		$errors = portfolio_session_get('portfolio_contact_form_errors') ?? [];
 		?>
 
-		<h1 class="sr-only"> Formulaire de contact </h1>
+		<h2 class="sr-only"> Formulaire de contact </h2>
 		<p class="title"> <?= get_field('title') ?> </p>
 
 		<?php if ($feedback): ?>
@@ -24,7 +24,7 @@
 
 			<form action="<?= esc_url(admin_url('admin-post.php')); ?>" method="POST" class="contact">
 				<fieldset class="contact__info">
-					<div class="contact__container ">
+					<div class="contact__container">
 						<div class="field">
 							<label for="firstname" class="field__label">Votre prénom</label>
 							<input type="text" name="firstname" id="firstname" class="field__input"/>

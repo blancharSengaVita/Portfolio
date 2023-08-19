@@ -1,7 +1,6 @@
 <?php /* Template Name: Landing page template */ ?>
 <?php get_header(); ?>
-<?php if (have_posts()): while (have_posts()):
-	the_post(); ?>
+<?php if (have_posts()): while (have_posts()):the_post(); ?>
 
 	<main class="main-page">
 		<div class="hero">
@@ -37,9 +36,6 @@
 
 				<figure class="description__fig">
 					<?= image(get_home_url() . '/wp-content/uploads/2023/06/2-bg-remove.png', 'description__img', 'photo de moi souriant'); ?>
-					<!--					<figcaption class="description__figcaption">-->
-					<?php //= get_field('legends_picture')[0]['text']
-					?><!--</figcaption>-->
 				</figure>
 
 				<div class="description__container">
@@ -86,6 +82,7 @@
 		<div class="call-to-action">
 			<h2 class="sr-only"> Contatez-moi !</h2>
 			<a href="<?= get_home_url() . "/contact/" ?>"> <?= get_field('call_to_action') ?> </a>
+
 		</div>
 	</main>
 <?php endwhile;

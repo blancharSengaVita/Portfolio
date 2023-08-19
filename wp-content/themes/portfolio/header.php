@@ -12,14 +12,13 @@
 	<link rel="manifest" href="/site.webmanifest">
 </head>
 <body>
-<h1 class="sr-only"><?= get_bloginfo('name'); ?></h1>
+<h1 class="sr-only"><?= get_field('title-sr'); ?></h1>
 <header class="header">
 	<div class="header__container logo">
 		<a class="logo__link" href="<?= get_home_url()?> ">
 			<?= image(get_home_url().'/wp-content/uploads/2023/06/Logo.png', 'logo__img', 'Portfolio de Blanchar Senga-Vita') ?>
 		</a>
 	</div>
-
 
 	<nav class="menu--desktop menu header__container display-none">
 		<h2 class="sr-only">Navigation principale</h2>

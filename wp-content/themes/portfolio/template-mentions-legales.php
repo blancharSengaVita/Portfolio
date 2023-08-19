@@ -1,7 +1,7 @@
 <?php /* Template Name: Privacy policy page template */ ?>
 <?php get_header(); ?>
 <main class="legal-mention">
-	<h1 class="legal-mention__title "><?=get_the_title();?></h1>
+	<p class="legal-mention__title "><?=get_the_title();?></p>
 	<div class="legal-mention__content">
 		<article class="general-information legal-mention__container">
 			<h2>Informations générales</h2>
