@@ -1,14 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<?php
+	$image_url = get_home_url().'/wp-content/uploads/2023/08/Logo-4.svg';
+	$image_id = attachment_url_to_postid($image_url);
+	$image_alt = get_post_meta($image_id, '_wp_attachment_image_alt', true);
+	$image_srcset = wp_get_attachment_image_srcset($image_id);
+	?>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title><?= get_bloginfo('name'); ?></title>
+	<title><?= get_field('title-sr'); ?></title>
 	<link rel="stylesheet" href="<?= get_stylesheet_directory_uri() . '/public/css/site.css';?>" />
 	<script src="<?= get_stylesheet_directory_uri() . '/public/js/main.js';?>" defer > </script>
-	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="<?= $image_url ?>">
+	<link rel="icon" type="image/png" sizes="32x32" href="<?= $image_url ?>">
+	<link rel="icon" type="image/png" sizes="16x16" href="<?= $image_url ?>">
 	<link rel="manifest" href="/site.webmanifest">
 </head>
 <body>
@@ -16,7 +22,8 @@
 <header class="header">
 	<div class="header__container logo">
 		<a class="logo__link" href="<?= get_home_url()?> ">
-			<?= image(get_home_url().'/wp-content/uploads/2023/06/Logo.png', 'logo__img', 'Portfolio de Blanchar Senga-Vita') ?>
+			<img class="logo__img" src="<?= $image_url ?>" alt="Portfolio de Blanchar Senga-Vita" srcset="<?= $image_srcset ?>" sizes="(max-width: 1000px) 60px,
+                (min-width: 1001px) 80px">
 		</a>
 	</div>
 

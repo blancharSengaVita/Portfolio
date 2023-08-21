@@ -44,8 +44,17 @@ function portfolio_get_menu(string $location, ?array $attributes = []): array
 
 // Activer les images "thumbnail" sur nos posts
 add_theme_support('post-thumbnails');
+add_image_size('h500', 9999, 500, false);
 add_image_size('h350', 9999, 350, false);
-add_image_size('w50', 500, 9999, false);
+add_image_size('w900', 900, 9999, false);
+add_image_size('w800', 800, 9999, false);
+add_image_size('w500', 500, 9999, false);
+add_image_size('500x500', 500, 500, false);
+add_image_size('400x400', 400, 400, false);
+add_image_size('w600', 600, 9999, false);
+add_image_size('w300', 300, 9999, false);
+add_image_size('w200', 200, 9999, false);
+add_image_size('w150', 150, 9999, false);
 add_image_size('w80', 80, 9999, false);
 add_image_size('w60', 60, 9999, false);
 add_image_size('w200xh200', 200, 200, false);

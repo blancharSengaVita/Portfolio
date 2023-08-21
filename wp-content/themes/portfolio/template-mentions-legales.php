@@ -11,11 +11,11 @@
 				<dt>Prénom</dt>
 				<dd><?= get_field('firstname'); ?></dd>
 				<dt>Numéro de téléphone</dt>
-				<dd><?= get_field('phone_number'); ?></dd>
+				<dd><a href="tel:<?= get_field('phone_number'); ?>"><?= get_field('phone_number'); ?></a></dd>
 				<dt>Rue</dt>
 				<dd><?= get_field('street') . ' '. get_field('street_number'); ?> </dd>
 				<dt>E-mail</dt>
-				<dd><a href="<?= get_field('email'); ?>"><?= get_field('email'); ?></a></dd>
+				<dd><a href="mailto:<?= get_field('email'); ?>"><?= get_field('email'); ?></a></dd>
 				<dt>Ville</dt>
 				<dd><?= get_field('city'); ?></dd>
 				<dt>Pays</dt>

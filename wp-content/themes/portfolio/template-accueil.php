@@ -9,7 +9,16 @@
 				<p class="hero__tagline"><?= get_bloginfo('description'); ?></p>
 			</div>
 			<div class="hero__container">
-				<?= image(get_home_url() .'/wp-content/uploads/2023/06/Logo.png', 'hero__img', 'Logo de Blanchar Senga-Vita'); ?>
+				<?php
+//				dd(get_field('pictures')['picture'][0]);
+				$image_id = get_field('pictures')['picture'][0];
+				$image_url = wp_get_attachment_url($image_id);
+				$image_alt = get_post_meta($image_id, '_wp_attachment_image_alt', true);
+				$image_srcset = wp_get_attachment_image_srcset($image_id);
+				?>
+
+				<img class="hero__img wp-post-image" src="<?= $image_url ?>" alt="Logo de Blanchar Senga-Vita" srcset="<?= $image_srcset ?>" sizes="(max-width: 1000px) 300px,
+                (min-width: 1001px) 500px">
 			</div>
 		</div>
 
@@ -18,24 +27,58 @@
 
 			<section class="quality__card">
 				<h3 class="card__title">  <?= get_field('qualities')['0']['name'] ?> </h3>
-				<?= image(get_home_url() . '/wp-content/uploads/2023/06/Eclaires.png', 'card__img', 'dessin de 3 éclaires'); ?>
+
+				<?php
+				$image_id = get_field('pictures')['picture'][2];
+				$image_url = wp_get_attachment_url($image_id);
+				$image_alt = get_post_meta($image_id, '_wp_attachment_image_alt', true);
+				$image_srcset = wp_get_attachment_image_srcset($image_id);
+				?>
+
+				<img class="card__img" src="<?= $image_url ?>" alt="dessin de 3 éclaires" srcset="<?= $image_srcset ?>" sizes="(max-width: 1000px) 80px,
+                (min-width: 1001px) 150px">
 			</section>
 
 			<section class="quality__card">
 				<h3 class="card__title">  <?= get_field('qualities')['1']['name'] ?> </h3>
-				<?= image(get_home_url() . '/wp-content/uploads/2023/06/Soleil.png', 'card__img', 'dessin d\'un soleil '); ?>
+				<?php
+				$image_id = get_field('pictures')['picture'][1];
+				$image_url = wp_get_attachment_url($image_id);
+				$image_alt = get_post_meta($image_id, '_wp_attachment_image_alt', true);
+				$image_srcset = wp_get_attachment_image_srcset($image_id);
+				?>
+
+				<img class="card__img" src="<?= $image_url ?>" alt="dessin d'un soleil" srcset="<?= $image_srcset ?>" sizes="(max-width: 1000px) 79px,
+                (min-width: 1001px) 150px">
 			</section>
 
 			<section class="quality__card">
 				<h3 class="card__title">  <?= get_field('qualities')['2']['name'] ?> </h3>
-				<?= image( get_home_url() . '/wp-content/uploads/2023/06/ampoule.png', 'card__img', 'dessin d\'une ampoule'); ?>
+				<?php
+				$image_id = get_field('pictures')['picture'][3];
+				$image_url = wp_get_attachment_url($image_id);
+				$image_alt = get_post_meta($image_id, '_wp_attachment_image_alt', true);
+				$image_srcset = wp_get_attachment_image_srcset($image_id);
+				?>
+
+				<img class="card__img" src="<?= $image_url ?>" alt="dessin d'une ampoule" srcset="<?= $image_srcset ?>" sizes="(max-width: 1000px) 80px,
+                (min-width: 1001px) 150px">
 			</section>
 
 			<section class="description">
 				<h2 class="sr-only"> Mais encore </h2>
 
+				<?php
+				$image_url = get_home_url() . '/wp-content/uploads/2023/06/2-bg-remove.png';
+				$image_id = attachment_url_to_postid($image_url);
+				$image_alt = get_post_meta($image_id, '_wp_attachment_image_alt', true);
+				$image_srcset = wp_get_attachment_image_srcset($image_id);
+				?>
+
+
 				<figure class="description__fig">
-					<?= image(get_home_url() . '/wp-content/uploads/2023/06/2-bg-remove.png', 'description__img', 'photo de moi souriant'); ?>
+					<img class="description__img" src="<?= $image_url ?>" alt="photo de moi souriant" srcset="<?= $image_srcset ?>" sizes="(max-width: 1000px) 200px,
+                (min-width: 1001px) 300px">
 				</figure>
 
 				<div class="description__container">
@@ -68,7 +111,7 @@
 						<h3 class="sr-only"><?= get_the_title(); ?></h3>
 						<a href="<?= get_the_permalink(); ?>" class="project__link">
 							<figure class="project__fig">
-								<?= get_the_post_thumbnail(null, 'project_thumbnail', ['class' => 'project__thumbnail']); ?>
+								<?= get_the_post_thumbnail(null, 'project_thumbnail', ['class' => 'project__thumbnail', ]); ?>
 							</figure>
 							<p class="project__title"><?= get_the_title(); ?></p>
 						</a>

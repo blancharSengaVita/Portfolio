@@ -25,20 +25,28 @@
 
 					<input type="checkbox" id="<?= $image['filename'] ?>" class="img__checkbox sr-only">
 
+					<?php
+					$image_url = $image['url'];
+					$image_id = attachment_url_to_postid($image_url);
+					$image_alt = get_post_meta($image_id, '_wp_attachment_image_alt', true);
+					$image_srcset = wp_get_attachment_image_srcset($image_id);
+					?>
+
+
+
 					<label for="<?= $image['filename'] ?>" class="img__label">
-						<?= image($image['url'], 'single-project__img', 'image du projet ' . get_the_title()) ?>
+						<img class="single-project__img" src="<?= $image_url ?>" alt="<?= 'image du projet' . get_the_title() ?>" srcset="<?= $image_srcset ?>" sizes="(max-width: 1000px) 50vw,
+                (min-width: 1001px) 50vw, 50vw">
 					</label>
 
 
 					<div class="img__popup">
 						<label for="<?= $image['filename'] ?>" class="img__checkbox">
-
 							<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="popup__close">
 								<line x1="18" x2="6" y1="6" y2="18"/>
 								<line x1="6" x2="18" y1="6" y2="18"/>
 							</svg>
-
-							<?= image($image['url'], 'single-project__img--large', 'image du projet ' . get_the_title()) ?>
+							<img class="single-project__img--large" src="<?= $image_url ?>" alt="<?= 'image du projet' . get_the_title() ?>" srcset="<?= $image_srcset ?>" sizes="(max-width: 1000px) 75vw, (min-width: 1001px) 85vw">
 						</label>
 					</div>
 				<?php endforeach; ?>
