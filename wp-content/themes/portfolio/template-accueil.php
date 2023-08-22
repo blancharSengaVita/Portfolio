@@ -10,7 +10,6 @@
 			</div>
 			<div class="hero__container">
 				<?php
-//				dd(get_field('pictures')['picture'][0]);
 				$image_id = get_field('pictures')['picture'][0];
 				$image_url = wp_get_attachment_url($image_id);
 				$image_alt = get_post_meta($image_id, '_wp_attachment_image_alt', true);
@@ -24,46 +23,48 @@
 
 		<section class="quality" id="quality">
 			<h2 class="quality__title"><?= get_field('description_title') ?></h2>
+			<ul class="quality__cards">
+				<li class="quality__card">
+					<h3 class="card__title">  <?= get_field('qualities')['0']['name'] ?> </h3>
 
-			<section class="quality__card">
-				<h3 class="card__title">  <?= get_field('qualities')['0']['name'] ?> </h3>
+					<?php
+					$image_id = get_field('pictures')['picture'][2];
+					$image_url = wp_get_attachment_url($image_id);
+					$image_alt = get_post_meta($image_id, '_wp_attachment_image_alt', true);
+					$image_srcset = wp_get_attachment_image_srcset($image_id);
+					?>
 
-				<?php
-				$image_id = get_field('pictures')['picture'][2];
-				$image_url = wp_get_attachment_url($image_id);
-				$image_alt = get_post_meta($image_id, '_wp_attachment_image_alt', true);
-				$image_srcset = wp_get_attachment_image_srcset($image_id);
-				?>
-
-				<img class="card__img" src="<?= $image_url ?>" alt="dessin de 3 éclaires" srcset="<?= $image_srcset ?>" sizes="(max-width: 1000px) 80px,
+					<img class="card__img" src="<?= $image_url ?>" alt="dessin de 3 éclaires" srcset="<?= $image_srcset ?>" sizes="(max-width: 1000px) 80px,
                 (min-width: 1001px) 150px">
-			</section>
+				</li>
 
-			<section class="quality__card">
-				<h3 class="card__title">  <?= get_field('qualities')['1']['name'] ?> </h3>
-				<?php
-				$image_id = get_field('pictures')['picture'][1];
-				$image_url = wp_get_attachment_url($image_id);
-				$image_alt = get_post_meta($image_id, '_wp_attachment_image_alt', true);
-				$image_srcset = wp_get_attachment_image_srcset($image_id);
-				?>
+				<li class="quality__card">
+					<h3 class="card__title">  <?= get_field('qualities')['1']['name'] ?> </h3>
+					<?php
+					$image_id = get_field('pictures')['picture'][1];
+					$image_url = wp_get_attachment_url($image_id);
+					$image_alt = get_post_meta($image_id, '_wp_attachment_image_alt', true);
+					$image_srcset = wp_get_attachment_image_srcset($image_id);
+					?>
 
-				<img class="card__img" src="<?= $image_url ?>" alt="dessin d'un soleil" srcset="<?= $image_srcset ?>" sizes="(max-width: 1000px) 79px,
+					<img class="card__img" src="<?= $image_url ?>" alt="dessin d'un soleil" srcset="<?= $image_srcset ?>" sizes="(max-width: 1000px) 79px,
                 (min-width: 1001px) 150px">
-			</section>
+				</li>
 
-			<section class="quality__card">
-				<h3 class="card__title">  <?= get_field('qualities')['2']['name'] ?> </h3>
-				<?php
-				$image_id = get_field('pictures')['picture'][3];
-				$image_url = wp_get_attachment_url($image_id);
-				$image_alt = get_post_meta($image_id, '_wp_attachment_image_alt', true);
-				$image_srcset = wp_get_attachment_image_srcset($image_id);
-				?>
+				<li class="quality__card">
+					<h3 class="card__title">  <?= get_field('qualities')['2']['name'] ?> </h3>
+					<?php
+					$image_id = get_field('pictures')['picture'][3];
+					$image_url = wp_get_attachment_url($image_id);
+					$image_alt = get_post_meta($image_id, '_wp_attachment_image_alt', true);
+					$image_srcset = wp_get_attachment_image_srcset($image_id);
+					?>
 
-				<img class="card__img" src="<?= $image_url ?>" alt="dessin d'une ampoule" srcset="<?= $image_srcset ?>" sizes="(max-width: 1000px) 80px,
+					<img class="card__img" src="<?= $image_url ?>" alt="dessin d'une ampoule" srcset="<?= $image_srcset ?>" sizes="(max-width: 1000px) 80px,
                 (min-width: 1001px) 150px">
-			</section>
+				</li>
+			</ul>
+
 
 			<section class="description">
 				<h2 class="sr-only"> Mais encore </h2>
@@ -103,10 +104,7 @@
 						'posts_per_page' => 9999
 				]); ?>
 
-				<?php // Lancer la boucle pour afficher chaque projet
-				if ($projects->have_posts()): while ($projects->have_posts()):
-					$projects->the_post();
-					?>
+				<?php if ($projects->have_posts()): while ($projects->have_posts()): $projects->the_post(); ?>
 					<article class="project__card">
 						<h3 class="sr-only"><?= get_the_title(); ?></h3>
 						<a href="<?= get_the_permalink(); ?>" class="project__link">

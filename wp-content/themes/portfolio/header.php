@@ -15,7 +15,6 @@
 	<link rel="apple-touch-icon" sizes="180x180" href="<?= $image_url ?>">
 	<link rel="icon" type="image/png" sizes="32x32" href="<?= $image_url ?>">
 	<link rel="icon" type="image/png" sizes="16x16" href="<?= $image_url ?>">
-	<link rel="manifest" href="/site.webmanifest">
 </head>
 <body>
 <h1 class="sr-only"><?= get_field('title-sr'); ?></h1>

@@ -75,6 +75,8 @@
           min-width: 12rem;
           max-width: 36rem;
           height: 2rem;
+          padding: 0.5rem;
+          font-size: 1.25rem;
 
           & :focus {
             outline: 4px solid blue;
@@ -162,6 +164,8 @@
           border: 2px black solid;
           width: 36rem;
           height: 2rem;
+          padding: 0.5rem;
+          font-size: 1.25rem;
 
           & :focus {
             outline: 4px solid blue;
@@ -179,6 +183,7 @@
           align-items: start;
 
           & input {
+
             margin-top: 0.5rem;
             border: 2px black solid;
             width: calc(18rem - 0.75rem - 2px) ;
@@ -193,6 +198,8 @@
         border: 2px black solid;
         width: 36rem;
         height: 12rem;
+        padding: 0.5rem;
+        font-size: 1.25rem;
       }
 
       &__submit {
