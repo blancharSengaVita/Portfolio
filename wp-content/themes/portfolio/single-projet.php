@@ -10,10 +10,27 @@
 			</section>
 			<section class="single-project__link">
 				<h2 class="sr-only">Lien du projet</h2>
-				<a  href="<?= get_field('project_link') ?>"> Visiter le projet  </a>
+				<nav>
+					<ul>
+						<li>
+							<?php if (get_field('project_link')): ?>
+							<a target="_blank" href="<?= get_field('project_link') ?>"> Visiter le projet </a>
+							<?php endif; ?>
+						</li>
+						<li>
+							<a target="_blank" href="<?= get_field('project_github') ?>"> Voir le projet sur github </a>
+						</li>
+						<li>
+							<?php if (get_field('Design')): ?>
+								<a target="_blank" href="<?= get_field('Design') ?>"> Visiter le design du projet </a>
+							<?php endif; ?>
+						</li>
+					</ul>
+				</nav>
+
+
 			</section>
 		</section>
-
 
 
 		<section class="single-project__container">
@@ -33,7 +50,6 @@
 					?>
 
 
-
 					<label for="<?= $image['filename'] ?>" class="img__label">
 						<img class="single-project__img" src="<?= $image_url ?>" alt="<?= 'image du projet' . get_the_title() ?>" srcset="<?= $image_srcset ?>" sizes="(max-width: 1000px) 50vw,
                 (min-width: 1001px) 50vw, 50vw">
@@ -51,7 +67,7 @@
 					</div>
 				<?php endforeach; ?>
 			<?php else: ?>
-			<p> Ce projet contient aucune image </p>
+				<p> Ce projet contient aucune image </p>
 			<?php endif; ?>
 		</section>
 

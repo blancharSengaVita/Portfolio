@@ -1,5 +1,9 @@
 @import "helpers/_var.scss";
 
+footer a {
+  text-decoration: underline;
+}
+
 @media screen and (max-width: 1023px) {
   footer {
     width: calc(100vw - (2rem*2));
@@ -20,8 +24,19 @@
     width: calc(100vw - (2rem*2));
     padding: 5rem 2rem 2rem;
     font-size: 1.5rem;
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+
+    justify-items: center;
+
+    footer:first-child{
+      justify-items: start;
+    }
+
+    footer:first-child{
+      justify-items: end;
+    }
+
     background-color: $background-color;
     & a:hover {
       color: $base-color;

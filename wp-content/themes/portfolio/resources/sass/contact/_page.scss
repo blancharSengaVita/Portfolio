@@ -75,7 +75,7 @@
           min-width: 12rem;
           max-width: 36rem;
           height: 2rem;
-          padding: 0.5rem;
+          padding: 0.25rem  0.5rem;
           font-size: 1.25rem;
 
           & :focus {
@@ -108,6 +108,8 @@
         min-width: 12rem;
         max-width: 36rem;
         height: 12rem;
+        padding: 0.25rem  0.5rem;
+        font-size: 1.25rem;
       }
 
       &__footer {
@@ -164,7 +166,7 @@
           border: 2px black solid;
           width: 36rem;
           height: 2rem;
-          padding: 0.5rem;
+          padding: 0.25rem  0.5rem;
           font-size: 1.25rem;
 
           & :focus {

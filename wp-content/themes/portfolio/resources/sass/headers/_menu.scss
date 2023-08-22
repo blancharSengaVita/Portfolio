@@ -1,6 +1,9 @@
 @import "../helpers/var";
 
 .menu {
+  ul {
+    display: flex;
+  }
   &__content {
     padding: 1rem;
     display: grid;
