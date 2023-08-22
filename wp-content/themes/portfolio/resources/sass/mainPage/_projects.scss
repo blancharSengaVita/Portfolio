@@ -43,7 +43,8 @@
   }
 
   &__link:focus {
-    outline: 4px solid royalblue;
+    outline: 5px solid royalblue;
+    display: block;
   }
 
   &__thumbnail{
@@ -96,3 +97,5 @@
     }
   }
 }
+
+
